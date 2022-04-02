@@ -5,7 +5,7 @@ const QuestionBanner = (props) => {
     return (
         <div className="question-banner">
             <div className="question-number">Question {props.number}</div>
-            <button className="question-button" onClick={props.route}>Click here!</button>
+            <a href={props.route}><button className="question-button">Click here!</button></a>
         </div>
     )
 }

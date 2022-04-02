@@ -43,65 +43,65 @@ const Question1 = () => {
                 </label>
 
                 <label
-                    htmlFor="name">Cost of product:
+                    htmlFor="cost">Cost of product:
                     <input
                         type="name"
                         className="form-control"
-                        id="name"
+                        id="cost"
                         value={cost}
                         onChange={(e) => { setCost(e.target.value) }}
                     />
                 </label>
 
-                <label htmlFor="name">Quantity:
+                <label htmlFor="quantity">Quantity:
                     <input
                         type="name"
                         className="form-control"
-                        id="name"
+                        id="quantity"
                         value={quantity}
                         onChange={(e) => { setQuantity(e.target.value) }}
                     />
                 </label>
 
                 <label
-                    htmlFor="name">Ordering Cost:
+                    htmlFor="order-cost">Ordering Cost:
                     <input
                         type="name"
                         className="form-control"
-                        id="name"
+                        id="order-cost"
                         value={orderCost}
                         onChange={(e) => { setOrderCost(e.target.value) }}
                     />
                 </label>
 
                 <label
-                    htmlFor="name">Carrying Cost:
+                    htmlFor="carry-cost">Carrying Cost:
                     <input
                         type="name"
                         className="form-control"
-                        id="name"
+                        id="carry-cost"
                         value={carryCost}
                         onChange={(e) => { setCarryCost(e.target.value) }}
                     />
                 </label>
 
                 <label
-                    htmlFor="name">Interest rate per year:
+                    htmlFor="interest">Interest rate per year:
                     <input
                         type="name"
                         className="form-control"
-                        id="name"
+                        id="interest"
                         value={interest}
                         onChange={(e) => { setInterest(e.target.value) }}
                     />
                 </label>
 
                 <label
-                    htmlFor="name">Number of production runs per year:
+                    htmlFor="prod-runs">Number of production runs per year:
                     <input
                         type="name"
                         className="form-control"
-                        id="name"
+                        id="prod-runs"
                         value={prodRun}
                         onChange={(e) => { setProdRun(e.target.value) }}
                     />
