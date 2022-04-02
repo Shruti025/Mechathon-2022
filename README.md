@@ -1,4 +1,4 @@
 ### How to run this project
-We have tried to make the project easily accessible to anyone. The deployed link is available in the about section and below:
+We have tried to make the project easily accessible to anyone. The deployed link is available in the about section and here:
 https://mechathon-2022.vercel.app/
 
