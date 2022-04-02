@@ -9,22 +9,35 @@ const Question1 = () => {
     const [carryCost, setCarryCost] = useState('');
     const [interest, setInterest] = useState('');
     const [prodRun, setProdRun] = useState('');
-    const EOQArray = [];
-    const nameArray = [];
-    const orderOrNot = [];
+
+    const [EOQArray, setEOQArray] = useState([]);
+    const [nameArray, setnameArray] = useState([]);
+    const [orderOrNot, setorderOrNot] = useState([]);
 
     function GetValue() {
         const holdingCost = Number(carryCost) + Number((interest * cost) / (100.0));
         const demand = (prodRun * prodRun * 2.0 * orderCost) / holdingCost;
         const qStar = Math.sqrt((2.0 * demand * orderCost) / holdingCost);
+
         EOQArray.push(qStar);
         nameArray.push(name);
+
         if (quantity >= demand) {
             orderOrNot.push(0);
         }
         else {
             orderOrNot.push(1);
         }
+    }
+
+    function print() {
+        setEOQArray(EOQArray);
+        setnameArray(nameArray);
+        setorderOrNot(orderOrNot);
+
+        console.log(EOQArray);
+        console.log(nameArray);
+        console.log(orderOrNot);
     }
 
     return (
@@ -107,8 +120,16 @@ const Question1 = () => {
                     required
                 />
 
-                <button onClick={GetValue}>Submit</button>
+                <button type="button" onClick={() => {
+                    GetValue();
+                    print();
+                }}
+                >Submit</button>
             </form>
+
+            <div>
+                {EOQArray}
+            </div>
         </div>
     )
 }
