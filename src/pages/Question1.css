@@ -4,6 +4,12 @@
     align-items: center;
 }
 
+.question-2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .input-form{
     display: flex;
     flex-direction: column;

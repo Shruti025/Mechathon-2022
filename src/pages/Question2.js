@@ -31,7 +31,8 @@ const Question2 = () => {
     }
 
     return (
-        <div>
+        <div className='question-2'>
+            <h1>Find the reactions and tension</h1>
             <form className='input-form'>
                 <label
                     htmlFor="name">Distance d:</label>
