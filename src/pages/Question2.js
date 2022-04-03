@@ -5,7 +5,11 @@ const Question2 = () => {
     const [distance, setDistance] = useState('');
     const [force1, setForce1] = useState('');
     const [force2, setForce2] = useState('');
-    /*const pi = Math.PI;
+    const [temp, setTemp] = useState('');
+    const [reactionA, setReactionA] = useState([]);
+    const [reactionD, setReactionD] = useState([]);
+    const [tension, setTension] = useState([]);
+    const pi = Math.PI;
 
     function GetReaction() {
         const Rd = (Number(force1 * 100) + Number(force2 * 100)) / 300.0;
@@ -14,13 +18,23 @@ const Question2 = () => {
         const Pae = Pab * Math.cos(pi / 3);
         const Pcd = 360 / Math.sin(pi / 3);
         const Ped = Pcd * Math.cos(pi / 3);
-    }*/
+        reactionA.push(Ra);
+        reactionD.push(Rd);
+        tension.push(Ped);
+        console.log(Pae);
+    }
+
+    function print() {
+        setReactionA(reactionA);
+        setReactionD(reactionD);
+        setTension(tension);
+    }
 
     return (
         <div>
             <form className='input-form'>
                 <label
-                    htmlFor="name">Name of product:</label>
+                    htmlFor="name">Distance d:</label>
                 <input
                     type="name"
                     className="form-control"
@@ -31,7 +45,7 @@ const Question2 = () => {
                 />
 
                 <label
-                    htmlFor="cost">Cost of product:</label>
+                    htmlFor="cost">Value of Force 1:</label>
                 <input
                     type="name"
                     className="form-control"
@@ -41,7 +55,7 @@ const Question2 = () => {
                     required
                 />
 
-                <label htmlFor="quantity">Quantity: </label>
+                <label htmlFor="quantity">Value of Force 2: </label>
                 <input
                     type="name"
                     className="form-control"
@@ -51,8 +65,23 @@ const Question2 = () => {
                     required
                 />
 
-                <button type="button">Submit</button>
+                <button type="button" onClick={() => {
+                    GetReaction();
+                    print();
+                    setTemp(temp + 1);
+                }}>Submit</button>
             </form>
+
+            <div className='results'>
+                {reactionA.map((value, key) => (
+                    <div className='results-inner-div'>
+                        <div>Reaction at A: {Math.trunc(value)} </div>
+                        <div>Reaction at D: {Math.trunc(reactionD[key])} </div>
+                        <div>Tension in ED: {Math.trunc(tension[key])}</div>
+                    </div>
+                )
+                )}
+            </div>
         </div>
     )
 }
