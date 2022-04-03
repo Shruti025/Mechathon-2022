@@ -25,3 +25,17 @@
     border-radius: 4px;
     background-color: red;
 }
+
+.results{
+    margin-top: 20px;
+    width: 100%;
+    display: flex;
+    column-gap: 20px;
+    flex-wrap: wrap;
+}
+
+.results-inner-div{
+    background-color: #ff7979;
+    padding: 10px;
+    border-radius: 5px;
+}

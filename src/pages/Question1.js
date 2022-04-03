@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
 import './Question1.css';
 
 const Question1 = () => {
@@ -9,6 +9,7 @@ const Question1 = () => {
     const [carryCost, setCarryCost] = useState('');
     const [interest, setInterest] = useState('');
     const [prodRun, setProdRun] = useState('');
+    const [Temp, setTemp] = useState('');
 
     const [EOQArray, setEOQArray] = useState([]);
     const [nameArray, setnameArray] = useState([]);
@@ -23,22 +24,38 @@ const Question1 = () => {
         nameArray.push(name);
 
         if (quantity >= demand) {
-            orderOrNot.push(0);
+            orderOrNot.push('No');
         }
         else {
-            orderOrNot.push(1);
+            orderOrNot.push('Yes');
         }
     }
 
     function print() {
-        setEOQArray(EOQArray);
         setnameArray(nameArray);
         setorderOrNot(orderOrNot);
-
         console.log(EOQArray);
         console.log(nameArray);
         console.log(orderOrNot);
+
+        // alert(EOQArray);
     }
+
+    useEffect(() => {
+
+        setEOQArray(EOQArray);
+        // const row = document.createElement("div");
+        // EOQArray.forEach((value, key) => {
+        //     // console.log("hello"))
+        //     // return (
+        //     row.appendChild({ value });
+
+        //     // )
+        // });
+        // document.getElementById("output").appendChild(row);
+        // console.log("useeffect");
+
+    }, [EOQArray]);
 
     return (
         <div className='question-1'>
@@ -123,13 +140,24 @@ const Question1 = () => {
                 <button type="button" onClick={() => {
                     GetValue();
                     print();
+                    setTemp(Temp + 1);
                 }}
-                >Submit</button>
+                >Submit{console.log(Temp)}</button>
+
+
             </form>
 
-            <div>
-                {EOQArray}
+            <div className='results'>
+                {EOQArray.map((value, key) => (
+                    <div className='results-inner-div'>
+                        <div>Name: {nameArray[key]} </div>
+                        <div>EOQ: {Math.trunc(value)} </div>
+                        <div>Order: {orderOrNot[key]}</div>
+                    </div>
+                )
+                )}
             </div>
+
         </div>
     )
 }
